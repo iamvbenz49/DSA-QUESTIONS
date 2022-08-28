@@ -18,3 +18,27 @@ var maxArea = function(height) {
     }
     return res
 };
+
+//while solving second time
+
+var maxArea = function(height) {
+    let i = 0;
+    let j = height.length-1
+    let len = height.length
+    let max = 0
+    while(i<j){
+        let temp;
+        if(height[i]>=height[j]){
+            temp = height[j]*(j-i) 
+            j--;
+        }
+        else{
+            temp = height[i]*(j-i)
+            i++;
+        }
+        if(temp > max){
+            max = temp
+        }
+    }
+    return max
+};
