@@ -5,3 +5,7 @@ class Solution:
                 matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
         for i in matrix:
             i.reverse()
+            
+            """
+                transpose the array,
+                then reverse it"""
