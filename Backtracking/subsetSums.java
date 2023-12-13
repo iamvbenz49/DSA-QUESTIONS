@@ -8,7 +8,7 @@ class Solution{
         subsetSum(arr,res,0,0);
         return res;
     }
-    // TC - O(2^N) 
+    // TC - O(2^N)*N
     // Auxillary stack space O(N)
     void subsetSum(ArrayList<Integer> arr,ArrayList<Integer> res,int sum,int index){
         if(index==arr.size()){
