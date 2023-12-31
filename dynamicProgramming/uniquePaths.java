@@ -81,3 +81,16 @@ class Solution {
     }
 
 }
+
+//Using Math + Combinatorics
+class Solution {
+    public int uniquePaths(int m, int n) {
+        m--;n--;
+        double res = 1;
+        for(int i=Math.max(m,n)+1;i<=m+n;i++)
+            res *=  i;
+        for(int i=1;i<=Math.min(m,n);i++)
+            res /= i;
+        return (int)res;
+    }
+}
