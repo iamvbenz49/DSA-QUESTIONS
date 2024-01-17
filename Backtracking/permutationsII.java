@@ -26,7 +26,8 @@ class Solution {
     }
 }
 
-
+// if(i>0 && vis[i-1]==0 &&arr.get(i)==arr.get(i-1))  if the previous recursion tree contains the currrnt tree then leave it
+//                    continue;
 // []
 // |-----[1]
 // |     |-----[1,1]
