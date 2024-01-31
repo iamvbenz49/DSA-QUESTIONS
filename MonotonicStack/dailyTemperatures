@@ -1,0 +1,50 @@
+LInk - https://youtu.be/MxfVC2KsSTA?feature=shared
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int[] answer = new int[temperatures.length];
+        for(int i=0;i<temperatures.length;i++){
+            for(int j=i+1;j<temperatures.length;j++){
+                if(temperatures[i]<temperatures[j]){
+                    answer[i] = j-i;
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+}
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int[] answer = new int[temperatures.length];
+        Stack<Integer> stack = new Stack<>();
+        for(int i=temperatures.length-1;i>=0;i--){
+            while(!stack.isEmpty() && temperatures[stack.peek()]<=temperatures[i])
+                stack.pop();
+            if(!stack.isEmpty()){
+                answer[i] = stack.peek() - i;
+            }
+            stack.add(i);
+        }
+        return answer;
+    }
+}
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int[] answer = new int[temperatures.length];
+        int hottest = -1;
+        for(int i=temperatures.length-1;i>=0;i--){
+            if(hottest<=temperatures[i]){
+                hottest = temperatures[i];
+                continue;
+            }
+            int days = 1;
+            while(temperatures[days+i]<=temperatures[i])
+                days += answer[days+i];
+            answer[i] = days;
+        }
+        return answer;
+    }
+}
