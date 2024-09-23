@@ -5,7 +5,9 @@ void solve() {
     int n, x, y;
     cin >> n >> x >> y;
     int minimumNumber = min(x, y);
-    cout << ceil(n/(minimumNumber*1.0));
+    cout << (int)ceil(n/(minimumNumber*1.0)); 
+    // another trick to get ceil
+    // (n - minimumNumber + 1)/minimumNumber
 }
 
 int main() {
