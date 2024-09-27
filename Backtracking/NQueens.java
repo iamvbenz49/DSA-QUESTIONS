@@ -50,3 +50,53 @@ class Solution {
         return true;
     }
 }
+
+// Baxktracking + Bitmask
+class Solution {
+    List<List<String>> res;
+    public List<List<String>> solveNQueens(int n) {
+        res = new ArrayList<>();
+        boolean[][] board = new boolean[n][n];
+        // col diagonal antidiagonal
+        backtrack(n, board, 0, 0, 0, 0);
+        return res;
+    }
+    
+    public void backtrack(int n, boolean[][] board, int row, int column, int diagonal, int antiDiagonal) {
+        if(row == board.length) {
+            res.add(toBoard(board));
+            return;
+        }
+        for(int i = 0; i < board.length; i++) {
+            int columnCheck = column & (1<<i);
+            int diagonalCheck = diagonal & (1<<(row+i));
+            int antiDiagonalCheck = antiDiagonal & (1<<(row-i+n));
+            if(columnCheck != 0 || diagonalCheck != 0 || antiDiagonalCheck != 0) continue;
+            column = column | (1<<i);
+            diagonal = diagonal | (1<<(row+i));
+            antiDiagonal = antiDiagonal | (1<<(row-i+n));
+            board[row][i] = true;
+            backtrack(n, board, row + 1, column, diagonal, antiDiagonal);
+            board[row][i] = false;
+            column = column ^ (1<<i);
+            diagonal = diagonal ^ (1<<(row+i));
+            antiDiagonal = antiDiagonal ^ (1<<(row-i+n));
+            
+        }
+    }
+    public List<String> toBoard(boolean[][] board) {
+        List<String> res = new ArrayList<>();
+        for(int i = 0; i < board.length; i++) {
+            StringBuilder sb = new StringBuilder();
+            for(int j = 0; j < board.length; j++) {
+                if(board[i][j]) {
+                    sb.append('Q');
+                } else {
+                    sb.append(".");
+                }
+            }
+            res.add(sb.toString());
+        }
+        return res;
+    }
+}
