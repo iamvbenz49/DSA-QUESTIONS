@@ -7,7 +7,7 @@ class Solution {
             return ans;
 
         Queue<List<String>> q = new LinkedList<>();
-        List<String> startList = new ArrayList<>(),usedOnThatLevel = new ArrayList<>();
+        List<String> startList = new ArrayList<>(), usedOnThatLevel = new ArrayList<>();
         
         int level = 0;
 
