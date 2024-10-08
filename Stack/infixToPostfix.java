@@ -53,5 +53,11 @@ class Solution {
             res += stack.pop();
         }
         return res;
+
+        // for infix to prefix -- > follow these steps
+        // Reverse the infix, change ( -- > ) and ) --> (
+        // only change in condition if ^ encountered remove everything from stack
+        // stack.isEmpty() || stack.peek() != '^'
+        // Reverse the answer
     }
 }
