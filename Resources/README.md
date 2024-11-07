@@ -18,6 +18,12 @@
 
 --
 
+## KMP Best video 
+
+[Aryan Mitaal KMP](https://www.youtube.com/watch?v=Gr-eKRuWIQc&list=PLEL7R4Pm6EmD9_THPRxFrA8V17Ps6hfwB)
+
+--
+
 ## Questions to solve
 
 [Count Fertile Pyramids in a Land](https://leetcode.com/problems/count-fertile-pyramids-in-a-land/description/)
